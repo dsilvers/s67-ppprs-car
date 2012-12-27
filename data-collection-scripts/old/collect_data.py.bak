@@ -1,0 +1,44 @@
+from glue.client import Client, start_client
+
+import serial
+import time
+
+class SerialPacketizer(Client):
+    
+    name = "Xbee"
+    purpose = "writer"
+
+    port = "/dev/tty.usbserial-000014FA"
+    speed = 9600
+
+    def setup_data(self):
+
+serial = serial.Serial(port, speed)
+
+start_packet = False
+packet = ""
+
+
+    def get_data(self):
+
+while True:
+    bytes = serial.inWaiting()
+    if bytes > 0:
+        char = serial.read(1)
+        
+        # Beginning of packet
+        if char == "(":
+            packet = "("
+        
+        # End of packet
+        elif char == ")":
+            packet = packet + ")"
+            print packet
+            packet = ""
+
+        # Data!
+        else:
+            packet = "%s%s" % (packet, char)
+
+
+
