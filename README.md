@@ -1,4 +1,4 @@
-The code contained here powered the telementry system for the vehicle seen here:
+The code contained here powered the telemetry system for 2011 PPPRS Secto67 vehicle as seen here:
 
 [http://www.wired.com/magazine/2011/09/st_powerwheels/](http://www.wired.com/magazine/2011/09/st_powerwheels/)
 
